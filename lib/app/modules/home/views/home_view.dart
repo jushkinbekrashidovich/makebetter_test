@@ -56,11 +56,30 @@ class HomeView extends GetView<HomeController> {
                 ],
               ),
               body: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                
                 children: [
                   Container(
+                    margin: EdgeInsets.only(right: 25, left: 25),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.white,
+                    ),
+                    child: ListTile(
+                        title: Text('My Achievements 🎊', style: TextStyle(fontSize: 25, color: Colors.black),textAlign: TextAlign.center,),
+                        onTap: () {
+                          Get.toNamed(Routes.MY_ACHIEVEMENTS);
+
+                          // Update the state of the app.
+                          // ...
+                        },
+                      ),
+                  ),
+                  Column(
+                    children: [
+                      Container(
                     width: double.infinity,
-                    height: 170,
+                    height: 190,
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       //borderRadius: BorderRadius.circular(10),
@@ -80,12 +99,24 @@ class HomeView extends GetView<HomeController> {
                       ],
                     ),
                   ),
-                  Center(
-                    child: Text(
-                      '',
-                      style: TextStyle(fontSize: 20),
-                    ),
+                    SizedBox(height: 10,),
+                     ElevatedButton(
+                      onPressed: () {
+                        controller.fetchStepData();
+                      },
+                      child: Container(
+                        child: Text('update'),
+                      )),
+                  SizedBox(
+                    height: 20,
                   ),
+                  controller.content(),
+                    
+                    ],
+                  ),
+                  SizedBox()
+                  
+                  
                   // ElevatedButton(
                   //     onPressed: () {
                   //       controller.fetchData();
@@ -100,17 +131,7 @@ class HomeView extends GetView<HomeController> {
                   //     child: Container(
                   //       child: Text('add'),
                   //     )),
-                  ElevatedButton(
-                      onPressed: () {
-                        controller.fetchStepData();
-                      },
-                      child: Container(
-                        child: Text('update'),
-                      )),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  controller.content(),
+                 
                 ],
               ),
               drawer: Drawer(
@@ -131,17 +152,10 @@ class HomeView extends GetView<HomeController> {
                       ),
                     ),
                     ListTile(
-                      title: Text('My Achievements'),
+                      title: Text('My Achievements 🎊', style: TextStyle(fontSize: 25),),
                       onTap: () {
                         Get.toNamed(Routes.MY_ACHIEVEMENTS);
 
-                        // Update the state of the app.
-                        // ...
-                      },
-                    ),
-                    ListTile(
-                      title: Text('Something'),
-                      onTap: () {
                         // Update the state of the app.
                         // ...
                       },

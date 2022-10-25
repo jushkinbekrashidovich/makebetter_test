@@ -14,18 +14,32 @@ class LoginView extends GetView<LoginController> {
         color:Colors.white,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              padding: EdgeInsets.only(right: 10, left: 10),
-              child: Text('Welcome to makebetter, we encourage to you be healthy.', style: TextStyle(fontSize: 16),)),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+              padding: EdgeInsets.only(right: 10, left: 15),
+              child: Text('Welcome to', style: TextStyle(fontSize: 20,color: Colors.green),)),
+              Container(
+              padding: EdgeInsets.only(right: 10, left: 15),
+              child: Text('makebetter', style: TextStyle(fontSize: 42,color: Colors.green),)),
+              Container(
+              padding: EdgeInsets.only(right: 10, left: 15),
+              child: Text('We help to you keep healthy', style: TextStyle(fontSize: 12,color: Colors.green),)),
+
+              ],
+            ),
+            
             Center(
               child: ElevatedButton(
                 
                 child: Container(
-                  height: 50,
+                  height: 30,
                   width: 180,
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       Container(
                         
