@@ -8,10 +8,10 @@ import '../controllers/home_controller.dart';
 class HomeView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
-    return GetBuilder(
+    return GetBuilder<HomeController>(
         builder: (controller) => Scaffold(
               appBar: AppBar(
-                title: Text(controller.user.displayName.toString()),
+                title: Text(controller!.user.displayName.toString()),
                 centerTitle: true,
                 actions: [
                   IconButton(
@@ -61,7 +61,7 @@ class HomeView extends GetView<HomeController> {
                   ),
                   ElevatedButton(
                       onPressed: () {
-                        controller!.fetchData();
+                        controller.fetchData();
                       },
                       child: Container(
                         child: Text('download'),

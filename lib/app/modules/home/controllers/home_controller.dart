@@ -237,32 +237,35 @@ class HomeController extends GetxController {
   }
   
    Widget contentDataReady() {
-    return ListView.builder(
-        itemCount: healthDataList.length,
-        itemBuilder: (_, index) {
-          HealthDataPoint p = healthDataList[index];
-          if (p.value is AudiogramHealthValue) {
+    return Expanded(
+      child: ListView.builder(
+        shrinkWrap: true,
+          itemCount: healthDataList.length,
+          itemBuilder: (_, index) {
+            HealthDataPoint p = healthDataList[index];
+            if (p.value is AudiogramHealthValue) {
+              return ListTile(
+                title: Text("${p.typeString}: ${p.value}"),
+                trailing: Text('${p.unitString}'),
+                subtitle: Text('${p.dateFrom} - ${p.dateTo}'),
+              );
+            }
+            if (p.value is WorkoutHealthValue) {
+              return ListTile(
+                title: Text(
+                    "${p.typeString}: ${(p.value as WorkoutHealthValue).totalEnergyBurned} ${(p.value as WorkoutHealthValue).totalEnergyBurnedUnit?.typeToString()}"),
+                trailing: Text(
+                    '${(p.value as WorkoutHealthValue).workoutActivityType.typeToString()}'),
+                subtitle: Text('${p.dateFrom} - ${p.dateTo}'),
+              );
+            }
             return ListTile(
               title: Text("${p.typeString}: ${p.value}"),
               trailing: Text('${p.unitString}'),
               subtitle: Text('${p.dateFrom} - ${p.dateTo}'),
             );
-          }
-          if (p.value is WorkoutHealthValue) {
-            return ListTile(
-              title: Text(
-                  "${p.typeString}: ${(p.value as WorkoutHealthValue).totalEnergyBurned} ${(p.value as WorkoutHealthValue).totalEnergyBurnedUnit?.typeToString()}"),
-              trailing: Text(
-                  '${(p.value as WorkoutHealthValue).workoutActivityType.typeToString()}'),
-              subtitle: Text('${p.dateFrom} - ${p.dateTo}'),
-            );
-          }
-          return ListTile(
-            title: Text("${p.typeString}: ${p.value}"),
-            trailing: Text('${p.unitString}'),
-            subtitle: Text('${p.dateFrom} - ${p.dateTo}'),
-          );
-        });
+          }),
+    );
   }
 
   Widget contentNoData() {
