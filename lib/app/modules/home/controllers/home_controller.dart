@@ -210,7 +210,7 @@ class HomeController extends GetxController {
         print("Caught exception in getTotalStepsInInterval: $error");
       }
 
-      print('Total number of steps: $steps');
+      print('Total number of steps: $steps',);
 
     nofSteps = (steps == null) ? 0 : steps;
     state = (steps == null) ? AppState.NO_DATA : AppState.STEPS_READY;
@@ -275,9 +275,7 @@ class HomeController extends GetxController {
   Widget contentNotFetched() {
     return Column(
       children: [
-        Text('Press the download button to fetch data.'),
-        Text('Press the plus button to insert some random data.'),
-        Text('Press the walking button to get total step count.'),
+        
       ],
       mainAxisAlignment: MainAxisAlignment.center,
     );
@@ -294,7 +292,7 @@ class HomeController extends GetxController {
   }
 
   Widget stepsFetched() {
-    return Text('Total number of steps: $nofSteps');
+    return Text('Total number of steps: $nofSteps', style: TextStyle(fontSize: 18),);
   }
 
   Widget dataNotAdded() {

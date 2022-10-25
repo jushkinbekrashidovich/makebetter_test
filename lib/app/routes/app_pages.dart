@@ -4,6 +4,8 @@ import 'package:makebetter_test/app/modules/home/bindings/home_binding.dart';
 import 'package:makebetter_test/app/modules/home/views/home_view.dart';
 import 'package:makebetter_test/app/modules/login/bindings/login_binding.dart';
 import 'package:makebetter_test/app/modules/login/views/login_view.dart';
+import 'package:makebetter_test/app/modules/my_achievements/bindings/my_achievements_binding.dart';
+import 'package:makebetter_test/app/modules/my_achievements/views/my_achievements_view.dart';
 import 'package:makebetter_test/app/modules/splash/bindings/splash_binding.dart';
 import 'package:makebetter_test/app/modules/splash/views/splash_view.dart';
 
@@ -29,6 +31,11 @@ class AppPages {
       name: _Paths.LOGIN,
       page: () => LoginView(),
       binding: LoginBinding(),
+    ),
+    GetPage(
+      name: _Paths.MY_ACHIEVEMENTS,
+      page: () => MyAchievementsView(),
+      binding: MyAchievementsBinding(),
     ),
   ];
 }

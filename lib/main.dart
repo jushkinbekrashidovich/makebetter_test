@@ -22,6 +22,24 @@ void main() async{
       initialRoute: AppPages.INITIAL,
       getPages: AppPages.routes,
       initialBinding: SplashBinding(),
+      themeMode: ThemeMode.dark,
+       darkTheme: ThemeData.dark().copyWith(
+        accentColor: Colors.green,
+        primaryColor: Color(0xff141A31),
+        primaryColorDark: Color(0xff081029),
+        scaffoldBackgroundColor: Color(0xff141A31),
+        textSelectionTheme: TextSelectionThemeData(cursorColor: Colors.blue),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ButtonStyle(
+              shape: MaterialStateProperty.all(
+                RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+              ),
+              backgroundColor: MaterialStateProperty.all(Colors.green),
+              padding: MaterialStateProperty.all(EdgeInsets.all(14))),
+        ),
+      ),
     ),
   );
 }

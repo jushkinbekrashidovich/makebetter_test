@@ -16,6 +16,8 @@ dependencies:
     sdk: flutter
   permission_handler: ^10.2.0
   health: ^4.2.0
+  cloud_firestore: ^4.0.2
+  cached_network_image: ^3.2.2
 
 dev_dependencies: 
   flutter_lints: ^2.0.0
